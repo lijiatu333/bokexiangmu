@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>个人任务管理面板</title>
+<style>
+  body {
+    font-family: 'Microsoft YaHei', sans-serif;
+  }
+  #taskList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .task {
+    background: #f4f4f4;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .task:hover {
+    background-color: #e0e0e0;
+  }
+  .completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+</style>
+</head>
+<body>
+<h1>个人任务管理面板</h1>
+<input type="text" id="newTask" placeholder="输入新任务">
+<button onclick="addTask()">添加任务</button>
+<ul id="taskList"></ul>
+
+<script>
+let tasks = [];
+
+function addTask() {
+  const newTaskInput = document.getElementById('newTask');
+  if (newTaskInput.value.trim() !== '') {
+    tasks.push({ text: newTaskInput.value, completed: false });
+    renderTasks();
+    newTaskInput.value = '';
+  }
+}
+
+function renderTasks() {
+  const taskList = document.getElementById('taskList');
+  taskList.innerHTML = ''; // 清空现有任务
+  tasks.forEach((task, index) => {
+    const li = document.createElement('li');
+    li.className = 'task';
+    li.textContent = task.text;
+    li.onclick = () => toggleComplete(index);
+    li.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      deleteTask(index);
+    }, false);
+    taskList.appendChild(li);
+  });
+}
+
+function toggleComplete(index) {
+  tasks[index].completed = !tasks[index].completed;
+  renderTasks();
+}
+
+function deleteTask(index) {
+  if (confirm('确定要删除这个任务吗?')) {
+    tasks.splice(index, 1);
+    renderTasks();
+  }
+}
+</script>
+</body>
+</html>
