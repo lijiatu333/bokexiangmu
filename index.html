@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -10,7 +9,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
+            background-color: #f4f4f4;
         }
         header, footer {
             background: #333;
@@ -33,15 +32,27 @@
         main {
             padding: 20px;
         }
-        article {
+        .section {
             background: #fff;
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         h1, h2 {
             color: #333;
+        }
+        .section h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section ul li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -57,10 +68,30 @@
         </nav>
     </header>
     <main id="home">
-        <article>
-            <h2>欢迎来到我的博客</h2>
-            <p>这里是我分享技术见解和生活点滴的地方。</p>
-        </article>
+        <div class="section">
+            <h2>最新文章</h2>
+            <ul>
+                <li>文章标题1 - <small>发布日期</small></li>
+                <li>文章标题2 - <small>发布日期</small></li>
+                <li>文章标题3 - <small>发布日期</small></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>技术见解</h2>
+            <ul>
+                <li>见解1 - <small>日期</small></li>
+                <li>见解2 - <small>日期</small></li>
+                <li>见解3 - <small>日期</small></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>生活点滴</h2>
+            <ul>
+                <li>点滴1 - <small>日期</small></li>
+                <li>点滴2 - <small>日期</small></li>
+                <li>点滴3 - <small>日期</small></li>
+            </ul>
+        </div>
     </main>
     <main id="about" style="display:none;">
         <article>
@@ -71,7 +102,7 @@
     <main id="contact" style="display:none;">
         <article>
             <h2>联系方式</h2>
-            <p>邮箱: www.com</p>
+            <p>邮箱: www.1909279118@qq.com</p>
         </article>
     </main>
     <footer>
